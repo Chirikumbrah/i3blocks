@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# BATTERY=0
+BATTERY_STATE=$(echo "${BATTERY_INFO}" | upower -i "$(upower -e | grep 'BAT')" | grep -E "state|to\ full" | awk '{print $2}')
+BATTERY_POWER=$(echo "${BATTERY_INFO}" | upower -i "$(upower -e | grep 'BAT')" | grep -E "percentage" | awk '{print $2}' | tr -d '%')
+
+
+if [[ "${BATTERY_STATE}" = "pending-charge" ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#009fff"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -gt 80 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#7cfc00"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -gt 60 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#cbff00"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -gt 40 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#f8ff00"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -gt 20 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#ffd900"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -gt 10 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#ff7f00"
+
+elif [[ "${BATTERY_STATE}" = "discharging" && "${BATTERY_POWER}" -le 10 ]]; then
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#ff5555"
+
+else
+    echo " ${BATTERY_POWER}%"
+    echo " ${BATTERY_POWER}%"
+    echo "#7cfc00"
+fi

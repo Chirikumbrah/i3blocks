@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# TIMEFMT=${TIMEFMT:-"+%H:%M"}
+DATEFMT=${TIMEFMT:-"+%a %d %b"}
+FULLDATEFMT=${FULLDATEFMT:-"+%A %d %B %Y"}
+
+case "$BLOCK_BUTTON" in
+    1) i3-msg -q "exec orage" ;;
+esac
+
+echo $(date "$DATEFMT" | awk '{ print tolower($0) }')

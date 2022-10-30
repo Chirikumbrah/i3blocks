@@ -1,0 +1,127 @@
+### separator ###
+full_text=|
+separator=false
+separator_block_width=7
+
+
+### volume ###
+[volume]
+command=~/.config/i3blocks/scripts/vol
+interval=once
+signal=10
+color=#bd93f9
+
+
+[separator]
+
+
+### microphone ###
+[microphone]
+command=~/.config/i3blocks/scripts/mic_nocol
+interval=once
+signal=10
+color=#FF92DF
+
+
+[separator]
+
+
+### brightness ###
+[backlight]
+label= 
+command=~/.config/i3blocks/scripts/backlight
+interval=once
+signal=9
+color=#f1fa8c
+
+
+[separator]
+
+
+### CPU temperature ###
+[cputemp]
+label= 
+command=~/.config/i3blocks/scripts/cputemp
+interval=5
+color=#8be9fd
+
+
+[separator]
+
+
+### used ram ###
+[ram]
+label= 
+command=~/.config/i3blocks/scripts/ram
+interval=5
+color=#50fa7b
+
+
+[separator]
+
+
+### root disk free space ###
+[disk]
+label=/ 
+command=~/.config/i3blocks/scripts/disk
+instance=/
+interval=60
+color=#ffb86c
+
+
+[separator]
+
+
+### yr disk free space ###
+[disk-yr]
+label=~ 
+command=~/.config/i3blocks/scripts/disk
+instance=/home/yr/yrData
+interval=60
+color=#bd93f9
+
+
+[separator]
+
+
+### battery ###
+[battery]
+command=~/.config/i3blocks/scripts/bat_simp
+interval=5
+signal=9
+color=#FF92DF
+
+
+[separator]
+
+
+### date ###
+[date]
+command=~/.config/i3blocks/scripts/calendar
+label= 
+interval=5
+color=#f1fa8c
+
+
+[separator]
+
+### time ###
+[time]
+command=date '+%H:%M'
+label= 
+interval=5
+color=#8be9fd
+
+
+[separator]
+
+
+
+### keyboard ###
+[kbd]
+command=xkb-switch;xkb-switch -W
+label= 
+interval=persist
+color=#50fa7b
+
+[separator]
